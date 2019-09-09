@@ -1,5 +1,7 @@
 package testing;
 
+import java.util.regex.Pattern;
+
 public class JunitTesting {
 
 	/**
@@ -13,7 +15,8 @@ public class JunitTesting {
 	}
 
 	/**
-	 * Count how many A's contains on string. 
+	 * Count how many A's contains on string.
+	 * 
 	 * @param word
 	 * @return
 	 */
@@ -26,6 +29,25 @@ public class JunitTesting {
 		}
 
 		return count;
+	}
+
+	public boolean ContainsUpperCase(String s) {
+		String s2 = s.toLowerCase();
+		return !s.equals(s2);
+	}
+
+	public boolean ContainsNumber(String s) {
+		return s.matches(".*\\d.*");
+	}
+
+	public boolean ContainsSpecialCharacter(String s) {
+		Pattern regex = Pattern.compile("!@#$%^&*-");
+		return regex.matcher(s).find();
+	}
+
+	public boolean IsValidPassword(String password) {
+		return password.length() > 7 && ContainsUpperCase(password) && ContainsNumber(password)
+				&& ContainsSpecialCharacter(password);
 	}
 
 }
