@@ -41,7 +41,7 @@ public class JunitTesting {
 	}
 
 	public boolean ContainsSpecialCharacter(String s) {
-		Pattern regex = Pattern.compile("!@#$%^&*-");
+		Pattern regex = Pattern.compile("[!@#$%&*()_+=|<>?{}\\[\\]~-]");
 		return regex.matcher(s).find();
 	}
 
